@@ -148,16 +148,17 @@ struct FileEntry {
     uint64_t modified_time;     // Last modification timestamp (Unix epoch)
     char owner[32];             // Username of owner
     uint32_t inode;             // Internal file identifier
-    uint8_t reserved[47];       // Reserved for future use
+    uint32_t parent_inode;      // Inode of the parent directory
+    uint8_t reserved[43];       // Reserved for future use
 
     // Default constructor
     FileEntry() = default;
     
     // Constructor
     FileEntry(const std::string& filename, EntryType entry_type, uint64_t file_size, 
-              uint32_t perms, const std::string& file_owner, uint32_t file_inode)
+              uint32_t perms, const std::string& file_owner, uint32_t file_inode, uint32_t parent_ino)
         : type(static_cast<uint8_t>(entry_type)), size(file_size), permissions(perms), 
-          created_time(0), modified_time(0), inode(file_inode) {
+          created_time(0), modified_time(0), inode(file_inode), parent_inode(parent_ino) {
         std::strncpy(name, filename.c_str(), sizeof(name) - 1);
         name[sizeof(name) - 1] = '\0';
         std::strncpy(owner, file_owner.c_str(), sizeof(owner) - 1);

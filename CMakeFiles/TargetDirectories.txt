@@ -1,0 +1,4 @@
+/home/talha/OFS-Phase 1/file-verse/CMakeFiles/ofs_server_run.dir
+/home/talha/OFS-Phase 1/file-verse/CMakeFiles/ofs_client.dir
+/home/talha/OFS-Phase 1/file-verse/CMakeFiles/edit_cache.dir
+/home/talha/OFS-Phase 1/file-verse/CMakeFiles/rebuild_cache.dir
